@@ -57,7 +57,7 @@ export const Cards = () => {
 
     async function deleteCard(id){
         try {
-            await axios.post('/api/character/delete', {id}, {
+            await axios.delete(`/api/character/delete/${id}`, {id}, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

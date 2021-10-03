@@ -95,9 +95,9 @@ router.post('/create', async (req, res) => {
     }
 })
 
-router.post('/delete', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     try {
-        const {id} = req.body
+        const id = req.params.id
         const delete_char = await Character.findOne({_id: id})
 
         if(delete_char.relationship.length > 0){
