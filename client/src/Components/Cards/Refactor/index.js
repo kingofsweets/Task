@@ -94,7 +94,8 @@ export const RefactorCard = () => {
     }, [getCard])
 
     return(
-        <div className = "create-card">
+        <div className="form-card">
+        <div className = "form-card__content">
             <h1>Редактировать карту персонажа</h1>
             {
                 errors.map((error) => (
@@ -115,13 +116,13 @@ export const RefactorCard = () => {
                 {
                     form.relationship.map((bound)=>(
                         <div>
-                            <p>Имя:</p>
+                            <p>Имя связанного персонажа:</p>
                             <input name= "partner_name" type="text" value={bound.partner_name} onChange={(e) => changeRelationship(e, bound.id)}/>
 
-                            <p>Вы:</p>
+                            <p>Роль текущего персонажа:</p>
                             <input name= "current_char" type="text" value={bound.current_char} onChange={(e) => changeRelationship(e, bound.id)}/>
 
-                            <p>Он(Она)</p>
+                            <p>Роль связанного персонажа:</p>
                             <input name= "bound_char" type="text" value={bound.bound_char} onChange={(e) => changeRelationship(e, bound.id)}/>
                         </div>
                     ))
@@ -130,6 +131,7 @@ export const RefactorCard = () => {
             </div>
 
             <button onClick={updateChar}>Обновить</button>
+        </div>
         </div>
     )
 }
