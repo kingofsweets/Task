@@ -48,7 +48,7 @@ export const RefactorCard = () => {
     
     const updateChar = async () => {
         try {
-            await axios.post('/api/character/update' , {...form, id} , {
+            await axios.put(`/api/character/update/${id}` , {...form, id} , {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -57,9 +57,7 @@ export const RefactorCard = () => {
                     console.log(error.response.data)
                     setErrors(error.response.data)
                 }
-            }
-
-            )
+            })
             .then(response => {
                 console.log(response.status)
                 if (response.status === 200) {

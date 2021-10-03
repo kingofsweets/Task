@@ -115,9 +115,10 @@ router.delete('/delete/:id', async (req, res) => {
     }
 })
 
-router.post('/update', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     try {
-        const {name, status, area, relationship, id} = req.body
+        const id = req.params.id
+        const {name, status, area, relationship} = req.body
 
         const update_char = await Character.findOne({_id: id})
 
