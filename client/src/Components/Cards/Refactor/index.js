@@ -115,7 +115,7 @@ export const RefactorCard = () => {
                 <h2>Связи с другими персонажами</h2>
                 {
                     form.relationship.map((bound)=>(
-                        <div>
+                        <div className="form-card__bound">
                             <p>Имя связанного персонажа:</p>
                             <input name= "partner_name" type="text" value={bound.partner_name} onChange={(e) => changeRelationship(e, bound.id)}/>
 
