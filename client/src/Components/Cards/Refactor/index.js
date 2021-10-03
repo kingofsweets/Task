@@ -33,10 +33,9 @@ export const RefactorCard = () => {
         setForm({...form, relationship : newList})
     }
 
-    function changeRelationship(event, id){
-        
+    function changeRelationship(event, id, type){
         const newList = form.relationship.map((bound)=>{
-            if(bound.id === id){
+            if(bound[type] === id){
                     bound[event.target.name] = event.target.value
                     console.log(form)
             }
@@ -115,13 +114,13 @@ export const RefactorCard = () => {
                     form.relationship.map((bound)=>(
                         <div key={form.relationship.indexOf(bound)}  className="form-card__bound">
                             <p>Имя связанного персонажа:</p>
-                            <input name= "partner_name" type="text" value={bound.partner_name} onChange={(e) => changeRelationship(e, bound.id)}/>
+                            <input name= "partner_name" type="text" value={bound.partner_name} onChange={(e) =>{bound._id !== null ? changeRelationship(e, bound._id, "_id"): changeRelationship(e, bound.id, "id")}}/>
 
                             <p>Роль текущего персонажа:</p>
-                            <input name= "current_char" type="text" value={bound.current_char} onChange={(e) => changeRelationship(e, bound.id)}/>
+                            <input name= "current_char" type="text" value={bound.current_char} onChange={(e) =>{bound._id !== null ? changeRelationship(e, bound._id, "_id"): changeRelationship(e, bound.id, "id")}}/>
 
                             <p>Роль связанного персонажа:</p>
-                            <input name= "bound_char" type="text" value={bound.bound_char} onChange={(e) => changeRelationship(e, bound.id)}/>
+                            <input name= "bound_char" type="text" value={bound.bound_char} onChange={(e) =>{bound._id !== null ? changeRelationship(e, bound._id, "_id"): changeRelationship(e, bound.id, "id")}}/>
                         </div>
                     ))
                 }
