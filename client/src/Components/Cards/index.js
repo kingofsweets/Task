@@ -85,7 +85,7 @@ export const Cards = () => {
                                 <h3 className="card__subtitle">Отношения:</h3>
                                 {
                                     character.relationship.map((bound) => (
-                                        <li className="card__text">{bound.current_char} для {bound.partner_name}</li>
+                                        <li key={bound._id} className="card__text">{bound.current_char} для {bound.partner_name}</li>
                                     ))
                                 }
                             </div>
@@ -115,7 +115,7 @@ export const Cards = () => {
                     <h2>Виды связей</h2>
                     {
                         bounds.map((bound) => (
-                            <p>{bound.first_part} - {bound.second_part}</p>
+                            <p key={bound._id}>{bound.first_part} - {bound.second_part}</p>
                         ))
                     }
                 </div>
