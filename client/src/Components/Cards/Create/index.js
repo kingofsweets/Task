@@ -71,7 +71,8 @@ export const CreateCard = () => {
     }
 
     return(
-        <div className = "create-card">
+        <div className="form-card">
+        <div className = "form-card__content">
             <h1>Создание карточки персонажа</h1>
             {
                 errors.map((error) => (
@@ -91,14 +92,14 @@ export const CreateCard = () => {
                 <h2>Связи с другими персонажами</h2>
                 {
                     form.relationship.map((bound)=>(
-                        <div>
-                            <p>Имя:</p>
+                        <div className= "form-card__bound">
+                            <p>Имя связанного персонажа:</p>
                             <input name= "partner_name" type="text" onChange={(e) => changeRelationship(e, bound.id)}/>
 
-                            <p>Вы:</p>
+                            <p>Роль текущего персонажа:</p>
                             <input name= "current_char" type="text" onChange={(e) => changeRelationship(e, bound.id)}/>
 
-                            <p>Он(Она)</p>
+                            <p>Роль связанного персонажа:</p>
                             <input name= "bound_char" type="text" onChange={(e) => changeRelationship(e, bound.id)}/>
                         </div>
                     ))
@@ -107,6 +108,7 @@ export const CreateCard = () => {
             </div>
 
             <button onClick = {() => createChar()}>Создать</button>
+        </div>
         </div>
     )
 }

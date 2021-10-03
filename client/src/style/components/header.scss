@@ -8,5 +8,9 @@
         font-family: 'Berkshire Swash', cursive;
         font-size: 50px;
     }
-
+    @include mobile-only{
+        &__title{
+            font-size: 25px;
+        }
+    }
 }

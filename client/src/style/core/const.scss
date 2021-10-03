@@ -1,0 +1,30 @@
+//Адаптив
+
+//breakpoints
+$mobile: 768px;
+$md-min: 1300px;
+$ld: 1750px;
+
+@mixin mobile-only () {
+    @media screen and (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin tablet-only () {
+    @media screen and (min-width: $mobile) and (max-width: $md-min) {
+        @content;
+    }
+}
+
+@mixin medium-desktop () {
+    @media screen and (min-width: $md-min) and (max-width: $ld)  {
+        @content;
+    }
+}
+
+@mixin large-desktop () {
+    @media screen and (min-width: $ld) {
+        @content;
+    }
+}
